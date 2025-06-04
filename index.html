@@ -67,38 +67,61 @@
       max-width: 600px;
       margin: 20px auto;
       position: relative;
-      overflow: hidden;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       border-radius: 10px;
     }
 
     .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+      display: inline-flex;
+      width: max-content;
     }
 
     .slides img, .slides video {
-      width: 100%;
-      flex: 0 0 100%;
+      width: 600px;
+      max-width: 100%;
+      scroll-snap-align: start;
       object-fit: cover;
+      border-radius: 10px;
+      margin-right: 10px;
     }
 
-    .controls {
-      text-align: center;
-      margin-top: 10px;
+    .faculty-section {
+      background-color: #f0f0ff;
+      border-left: 5px solid #4b0082;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
     }
 
-    .controls button {
-      background-color: #4b0082;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border-radius: 5px;
-      cursor: pointer;
+    .faculty-section h2 {
+      color: #4b0082;
     }
 
-    .controls button:hover {
-      background-color: #372061;
+    .faculty-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .faculty-section li {
+      padding: 8px 0;
+      font-weight: bold;
+    }
+
+    .contact, .address, .cta {
+      background: #fef6ff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .cta p {
+      font-size: 1.1em;
+      color: #4b0082;
     }
   </style>
 </head>
@@ -109,7 +132,7 @@
 
   <div class="container">
     <div class="slider-container">
-      <div class="slides" id="slider">
+      <div class="slides">
         <img src="img1.jpg" alt="Classroom Image 1">
         <img src="img2.jpg" alt="Classroom Image 2">
         <video controls>
@@ -118,22 +141,20 @@
         </video>
       </div>
     </div>
-    <div class="controls">
-      <button onclick="prevSlide()">Previous</button>
-      <button onclick="nextSlide()">Next</button>
-    </div>
 
     <h2>📚 Nursery to 10th Standard</h2>
     <h3>🏫 MP & CBSE Board (Hindi & English Medium)</h3>
 
     <p>🎯 High-quality education with minimum fees in separate batches for Hindi and English medium students!</p>
 
-    <h2>👨‍🏫 Our Experienced Faculty</h2>
-    <ul>
-      <li>Er. Deepak Sir</li>
-      <li>Er. Anil Sir</li>
-      <li>Er. Shivangi Ma’am</li>
-    </ul>
+    <div class="faculty-section">
+      <h2>👨‍🏫 Our Experienced Faculty</h2>
+      <ul>
+        <li>Er. Deepak Sir</li>
+        <li>Er. Anil Sir</li>
+        <li>Er. Shivangi Ma’am</li>
+      </ul>
+    </div>
 
     <div class="contact">
       <h2>📞 Contact Us Today!</h2>
@@ -170,26 +191,5 @@
   <footer>
     <p>&copy; 2025 Spark Classes – All Rights Reserved</p>
   </footer>
-
-  <script>
-    let currentIndex = 0;
-    const slider = document.getElementById('slider');
-    const slides = slider.children;
-
-    function updateSlide(index) {
-      if (index < 0) index = slides.length - 1;
-      if (index >= slides.length) index = 0;
-      slider.style.transform = `translateX(-${index * 100}%)`;
-      currentIndex = index;
-    }
-
-    function prevSlide() {
-      updateSlide(currentIndex - 1);
-    }
-
-    function nextSlide() {
-      updateSlide(currentIndex + 1);
-    }
-  </script>
 </body>
 </html>
