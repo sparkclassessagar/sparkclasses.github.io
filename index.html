@@ -1,83 +1,70 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spark Classes - Self Study Point</title>
+  <title>Spark Classes - Nursery to 10th</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-    header { background: #d62828; color: white; padding: 20px; text-align: center; }
+    header { background: #0d47a1; color: white; padding: 20px; text-align: center; }
     nav { text-align: center; margin: 20px 0; }
     .container { padding: 20px; max-width: 1200px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     .slider { margin-bottom: 20px; }
     .slider img, .slider video { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; }
-    .form-map-wrapper { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: flex-start; margin-top: 20px; }
-    .form-map-wrapper form { flex: 1; min-width: 280px; max-width: 500px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .form-map-wrapper iframe { flex: 1; min-width: 280px; height: 250px; border: none; border-radius: 10px; }
-    input, textarea { width: 100%; padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    form, .map-form-wrapper { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+    form { flex: 1 1 45%; flex-direction: column; display: flex; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, textarea { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; }
     button { padding: 10px; background: #0077cc; color: white; border: none; cursor: pointer; border-radius: 5px; }
     .social { text-align: center; margin-top: 20px; }
     .social a { margin: 0 10px; font-size: 1.5em; color: #333; }
     footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
-    #language-switcher { margin-top: 10px; text-align: center; }
+    iframe { width: 100%; height: 200px; border: none; border-radius: 10px; }
   </style>
 </head>
 <body>
   <header>
-    <h1 data-en="SPARK CLASSES" data-hi="स्पार्क क्लासेस">SPARK CLASSES</h1>
-    <p data-en="Help to Build Tomorrow - Self Study Point" data-hi="भविष्य निर्माण में मदद - सेल्फ स्टडी पॉइंट">Help to Build Tomorrow - Self Study Point</p>
-    <div id="language-switcher">
-      <button onclick="switchLanguage('en')">English</button>
-      <button onclick="switchLanguage('hi')">हिन्दी</button>
-    </div>
+    <h1>Spark Classes</h1>
+    <p>Learning Today, Leading Tomorrow...</p>
+    <h2 style="color: yellow; margin-top: 10px;">कक्षा नर्सरी से दसवीं तक</h2>
+    <h3 style="color: #ffeb3b;">MP & CBSE BOARD</h3>
+    <p>हिन्दी एवं अंग्रेजी माध्यम के अलग-अलग बैच न्यूनतम फीस में बेहतर शिक्षा</p>
   </header>
 
   <div class="slider">
-    <div><img src="/mnt/data/WhatsApp Image 2025-06-04 at 5.13.34 PM.jpeg" alt="Spark Library Image"></div>
-    <div><img src="https://via.placeholder.com/1200x400?text=Study+Space+2" alt="Study Space"></div>
-    <div><video controls><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+    <div><img src="/mnt/data/WhatsApp Image 2025-06-04 at 18.00.40_0dbd35d2.jpg" alt="Spark Classes Banner"></div>
+    <div><img src="https://via.placeholder.com/1200x400?text=Classroom+Image" alt="Classroom"></div>
   </div>
 
   <div class="container">
-    <h2 data-en="Facilities and Benefits:" data-hi="सुविधाएं और लाभ:">Facilities and Benefits:</h2>
-    <ul>
-      <li data-en="Free Registration" data-hi="फ्री रजिस्ट्रेशन">Free Registration</li>
-      <li data-en="Peaceful Environment" data-hi="शांत वातावरण">Peaceful Environment</li>
-      <li data-en="Excellent Seating Arrangement" data-hi="बैठने की उत्तम व्यवस्था">Excellent Seating Arrangement</li>
-      <li data-en="Separate Seating for Girls" data-hi="लड़कियों के लिये अलग बैठक व्यवस्था">Separate Seating for Girls</li>
-      <li data-en="High-Speed Internet" data-hi="हाई स्पीड इंटरनेट">High-Speed Internet</li>
-      <li data-en="Camera Surveillance" data-hi="कैमरा">Camera Surveillance</li>
-      <li data-en="Drinking Water" data-hi="पानी">Drinking Water</li>
-      <li data-en="Charging Facility for Mobile and Laptop" data-hi="मोबाइल एवं लैपटॉप के लिये चार्जिंग व्यवस्था">Charging Facility for Mobile and Laptop</li>
-    </ul>
+    <h2>Our Faculty</h2>
+    <p>Er. Deepak Sir, Er. Anil Sir, Er. Shivangi Ma'am</p>
 
-    <h2 data-en="Location & Query" data-hi="स्थान और प्रश्न">Location & Query</h2>
-    <div class="form-map-wrapper">
+    <div class="map-form-wrapper">
       <form action="https://formspree.io/f/maylknkl" method="POST">
         <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
         <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
         <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
-        <button type="submit" data-en="Submit" data-hi="सबमिट करें">Submit</button>
+        <button type="submit">Submit</button>
       </form>
-      <iframe src="https://www.google.com/maps?q=Pantnagar+Ward+Pul,+Sagar,+Madhya+Pradesh&output=embed"></iframe>
+
+      <iframe src="https://www.google.com/maps?q=10th+Battalion,+Makronia,+Sagar,+Madhya+Pradesh&output=embed"></iframe>
     </div>
 
     <div class="social">
-      <h3 data-en="Connect with us" data-hi="हमसे जुड़ें">Connect with us</h3>
-      <a href="https://wa.me/918085522630" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <h3>Connect with us</h3>
+      <a href="https://wa.me/917509775419" target="_blank"><i class="fab fa-whatsapp"></i></a>
       <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="tel:+918085522630"><i class="fas fa-phone"></i></a>
+      <a href="tel:+917509775419"><i class="fas fa-phone"></i></a>
     </div>
   </div>
 
   <footer>
-    <p data-en="Address: Pantnagar Ward Pul Ke Paas, Sagar (M.P.)" data-hi="पता: पंतनगर वार्ड पुल के पास, सागर (म.प्र.)">Address: Pantnagar Ward Pul Ke Paas, Sagar (M.P.)</p>
-    <p data-en="Contact: +91 8085522630, +91 6263989064" data-hi="संपर्क: +91 8085522630, +91 6263989064">Contact: +91 8085522630, +91 6263989064</p>
+    <p>पता: सागर एवेन्यू के सामने, 10वीं बटालियन, मकरोनिया, सागर म.प्र.</p>
+    <p>Mob: 7509775419, 8878414478, 9644391224</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -92,12 +79,6 @@
       autoplay: true,
       autoplaySpeed: 3000
     });
-
-    function switchLanguage(lang) {
-      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-        el.textContent = el.getAttribute('data-' + lang);
-      });
-    }
   </script>
 </body>
 </html>
