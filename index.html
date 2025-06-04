@@ -1,110 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spark Classes - Learning Today, Leading Tomorrow</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <title data-en="Spark Classes - Learning Today, Leading Tomorrow…" data-hi="स्पार्क क्लासेस – आज की पढ़ाई, कल की अगुवाई…">स्पार्क क्लासेस – आज की पढ़ाई, कल की अगुवाई…</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #333; }
-    header { background: #003566; color: white; padding: 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { margin: 5px 0; font-style: italic; }
-    #language-switcher { margin: 10px 0; }
-    .container { padding: 20px; max-width: 1200px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .slider { margin-bottom: 20px; }
-    .slider img, .slider video { width: 100%; height: auto; border-radius: 10px; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #fff8f0; color: #333; }
+    header { background: #4b0082; color: white; padding: 20px; text-align: center; }
+    .container { padding: 20px; max-width: 800px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1, h2, p, li { margin: 10px 0; }
     ul { padding-left: 20px; }
-    form { display: flex; flex-direction: column; gap: 10px; background: #eef2f7; padding: 20px; border-radius: 10px; }
-    input, textarea { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
-    button { padding: 10px; background: #0077cc; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
-    button:hover { background: #005fa3; }
-    .social { text-align: center; margin-top: 20px; }
-    .social a { margin: 0 10px; font-size: 1.8em; color: #003566; transition: color 0.3s; }
-    .social a:hover { color: #0077cc; }
-    .map-form-wrapper { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
-    iframe { flex: 1; min-width: 300px; height: 250px; border: none; border-radius: 10px; }
-    form { flex: 1; min-width: 300px; }
-    footer { text-align: center; background: #003566; color: white; padding: 15px; margin-top: 40px; }
-    @media (max-width: 768px) {
-      .map-form-wrapper { flex-direction: column; }
-    }
+    .contact, .address, .social { margin-top: 20px; text-align: center; }
+    .social a { margin: 0 10px; font-size: 1.5em; color: #4b0082; text-decoration: none; }
+    footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
+    #language-switcher { text-align: center; margin: 10px 0; }
+    select { padding: 5px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc; }
   </style>
 </head>
 <body>
   <header>
-    <h1 data-en="Spark Classes" data-hi="स्पार्क क्लासेस">Spark Classes</h1>
-    <p data-en="Learning Today, Leading Tomorrow" data-hi="आज सीखो, कल नेतृत्व करो">Learning Today, Leading Tomorrow</p>
+    <h1 data-en="Spark Classes – Learning Today, Leading Tomorrow…" data-hi="स्पार्क क्लासेस – आज की पढ़ाई, कल की अगुवाई…">स्पार्क क्लासेस – आज की पढ़ाई, कल की अगुवाई…</h1>
     <div id="language-switcher">
-      <label for="language">Language / भाषा:</label>
-      <select id="language" onchange="switchLanguage(this.value)">
+      <label for="lang">भाषा चुनें / Choose Language:</label>
+      <select id="lang" onchange="switchLanguage(this.value)">
+        <option value="hi" selected>हिन्दी</option>
         <option value="en">English</option>
-        <option value="hi">हिन्दी</option>
       </select>
     </div>
   </header>
 
-  <div class="slider">
-    <div><img src="img1.jpg" alt="Study Area"></div>
-    <div><img src="img2.jpg" alt="Classroom"></div>
-    <div><img src="banner.jpg" alt="Spark Banner"></div>
-  </div>
-
   <div class="container">
-    <h2 data-en="Classes Nursery to 10th (MP & CBSE Board)" data-hi="कक्षा नर्सरी से 10वीं तक (MP एवं CBSE बोर्ड)">Classes Nursery to 10th (MP & CBSE Board)</h2>
+    <h2 data-en="Nursery to 10th Standard" data-hi="कक्षा नर्सरी से 10वीं तक">कक्षा नर्सरी से 10वीं तक</h2>
+    <h3 data-en="MP & CBSE Board (Hindi & English Medium)" data-hi="MP एवं CBSE बोर्ड (हिन्दी और अंग्रेजी माध्यम)">MP एवं CBSE बोर्ड (हिन्दी और अंग्रेजी माध्यम)</h3>
+
+    <p data-en="High-quality education with minimum fees in separate batches for Hindi and English medium students!" data-hi="हिन्दी एवं अंग्रेजी माध्यम के लिए अलग-अलग बैच न्यूनतम फीस में बेहतर शिक्षा!">
+      हिन्दी एवं अंग्रेजी माध्यम के लिए अलग-अलग बैच न्यूनतम फीस में बेहतर शिक्षा!
+    </p>
+
+    <h2 data-en="Our Experienced Faculty" data-hi="हमारे अनुभवी शिक्षक">हमारे अनुभवी शिक्षक</h2>
     <ul>
-      <li data-en="Separate Hindi and English Medium Batches" data-hi="हिन्दी एवं अंग्रेजी माध्यम के अलग-अलग बैच">Separate Hindi and English Medium Batches</li>
-      <li data-en="Best Education at Minimum Fee" data-hi="न्यूनतम फीस में बेहतर शिक्षा">Best Education at Minimum Fee</li>
-      <li data-en="Taught by Er. Deepak Sir, Er. Anil Sir, and Er. Shivangi Ma'am" data-hi="Er. दीपक सर, Er. अनिल सर और Er. शिवांगी मैम द्वारा पढ़ाया जाता है">Taught by Er. Deepak Sir, Er. Anil Sir, and Er. Shivangi Ma'am</li>
+      <li data-en="Er. Deepak Sir" data-hi="इंजी. दीपक सर">इंजी. दीपक सर</li>
+      <li data-en="Er. Anil Sir" data-hi="इंजी. अनिल सर">इंजी. अनिल सर</li>
+      <li data-en="Er. Shivangi Ma’am" data-hi="इंजी. शिवांगी मैम">इंजी. शिवांगी मैम</li>
     </ul>
 
-    <div class="map-form-wrapper">
-      <iframe src="https://www.google.com/maps?q=10th+Battalion,+Makronia,+Sagar+M.P.&output=embed"></iframe>
-
-      <form action="https://formspree.io/f/maylknkl" method="POST">
-        <h3 data-en="Send a Query" data-hi="प्रश्न पूछें">Send a Query</h3>
-        <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
-        <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
-        <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
-        <button type="submit" data-en="Submit" data-hi="सबमिट करें">Submit</button>
-      </form>
+    <div class="contact">
+      <h2 data-en="Contact Us Today!" data-hi="आज ही संपर्क करें!">आज ही संपर्क करें!</h2>
+      <p data-en="Mob:" data-hi="मोबाइल:">मोबाइल:</p>
+      <p>7509775419, 8878414478, 9644391224</p>
     </div>
 
+    <div class="address">
+      <h2 data-en="Address" data-hi="पता">पता</h2>
+      <p data-en="Opp. Sagar Avenue, 10th Battalion, Makronia, Sagar (M.P.)" data-hi="सागर एवेन्यू के सामने, 10वीं बटालियन, मकरोनिया, सागर (म.प्र.)">
+        सागर एवेन्यू के सामने, 10वीं बटालियन, मकरोनिया, सागर (म.प्र.)
+      </p>
+    </div>
+
+    <p data-en="Give your child the right start with expert guidance and a supportive environment. Join Spark Classes Now!" data-hi="अपने बच्चे को सही शुरुआत दें – अनुभवी मार्गदर्शन और सहयोगी माहौल के साथ। आज ही स्पार्क क्लासेस जॉइन करें!">
+      अपने बच्चे को सही शुरुआत दें – अनुभवी मार्गदर्शन और सहयोगी माहौल के साथ। आज ही स्पार्क क्लासेस जॉइन करें!
+    </p>
+
     <div class="social">
-      <h3 data-en="Connect with us" data-hi="हमसे जुड़ें">Connect with us</h3>
-      <a href="https://wa.me/917509775419" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <h3 data-en="Follow us on social media" data-hi="सोशल मीडिया पर हमें फॉलो करें">सोशल मीडिया पर हमें फॉलो करें</h3>
+      <a href="https://wa.me/918085522630" target="_blank"><i class="fab fa-whatsapp"></i></a>
       <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="tel:+917509775419"><i class="fas fa-phone"></i></a>
     </div>
   </div>
 
   <footer>
-    <p data-en="Address: In front of Sagar Avenue, 10th Battalion, Makronia, Sagar, M.P." data-hi="पता: सागर एवेन्यू के सामने, 10वीं बटालियन, मकरोनिया, सागर, म.प्र.">Address: In front of Sagar Avenue, 10th Battalion, Makronia, Sagar, M.P.</p>
-    <p data-en="Contact: 7509775419, 8878414478, 9644391224" data-hi="संपर्क: 7509775419, 8878414478, 9644391224">Contact: 7509775419, 8878414478, 9644391224</p>
+    <p data-en="Spark Classes - All Rights Reserved" data-hi="स्पार्क क्लासेस - सर्वाधिकार सुरक्षित">स्पार्क क्लासेस - सर्वाधिकार सुरक्षित</p>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    $('.slider').slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      autoplay: true,
-      autoplaySpeed: 3000,
-      arrows: true,
-      fade: false,
-      cssEase: 'ease-in-out'
-    });
-
     function switchLanguage(lang) {
       document.querySelectorAll('[data-' + lang + ']').forEach(el => {
         el.textContent = el.getAttribute('data-' + lang);
       });
     }
+    // Initialize default to Hindi
+    window.onload = () => switchLanguage('hi');
   </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
