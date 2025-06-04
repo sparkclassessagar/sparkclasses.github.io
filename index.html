@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spark Classes – Learning Today, Leading Tomorrow…</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Base styles for the body and overall layout */
         body {
@@ -13,6 +15,16 @@
             padding: 0;
             background: #f9f9f9;
             color: #333;
+        }
+          /* Custom styles for the "Samprate" look, applied only to the faculty-section-samprate class */
+        .faculty-section-samprate {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); /* Subtle gradient */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+        }
+        .faculty-section-samprate:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Even more pronounced shadow on hover */
         }
 
         /* Header styling */
@@ -553,7 +565,7 @@
             <p data-en="🎯 High-quality education with minimum fees in separate batches for Hindi and English medium students!" data-hi="🎯 न्यूनतम शुल्क में उच्च गुणवत्ता वाली शिक्षा (हिंदी और इंग्लिश मीडियम के लिए अलग-अलग बैच)">🎯 High-quality education with minimum fees in separate batches for Hindi and English medium students!</p>
         </div>
 
-        <div class="faculty-section bg-white p-8 rounded-xl shadow-lg max-w-md w-full mx-4 sm:mx-auto">
+       <div class="faculty-section faculty-section-samprate p-8 rounded-xl max-w-md w-full mx-4 sm:mx-auto">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center flex items-center justify-center gap-3" data-en="👨‍🏫 Our Experienced Faculty" data-hi="👨‍🏫 हमारे अनुभवी शिक्षक">
             <span role="img" aria-label="teacher emoji">👨‍🏫</span> Our Experienced Faculty
         </h2>
