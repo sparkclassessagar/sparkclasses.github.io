@@ -1,213 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spark Classes – Learning Today, Leading Tomorrow…</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spark Classes – Learning Today, Leading Tomorrow…</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles for the body and overall layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
 
-    header {
-      background-color: #4b0082;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+        /* Header styling */
+        header {
+            background-color: #4b0082; /* Deep purple */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        /* Language switch dropdown styling */
+        .lang-switch {
+            text-align: center;
+            margin-top: 10px;
+        }
 
-    h1, h2, p, ul {
-      margin: 15px 0;
-    }
+        /* Main content container styling */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative; /* Needed for z-index context */
+            z-index: 1; /* Ensure content is above animations */
+        }
 
-    ul {
-      padding-left: 20px;
-    }
+        /* General spacing for headings, paragraphs, and lists */
+        h1, h2, p, ul {
+            margin: 15px 0;
+        }
 
-    .contact, .address, .cta, .social {
-      margin-top: 30px;
-      text-align: center;
-    }
+        /* List item indentation */
+        ul {
+            padding-left: 20px;
+        }
 
-    .social a {
-      margin: 0 15px;
-      font-size: 1.8em;
-      color: #4b0082;
-      text-decoration: none;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
+        /* Section styling for contact, address, call to action, and social media */
+        .contact, .address, .cta, .social {
+            margin-top: 30px;
+            text-align: center;
+        }
 
-    .social a:hover {
-      color: #ff6600;
-      transform: scale(1.2);
-    }
+        /* Social media links styling */
+        .social a {
+            margin: 0 15px;
+            font-size: 1.8em;
+            color: #4b0082; /* Deep purple */
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+        }
 
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 10px;
-      margin-top: 40px;
-    }
+        .social a:hover {
+            color: #ff6600; /* Orange on hover */
+            transform: scale(1.2); /* Slightly enlarge on hover */
+        }
 
-    .slider-container {
-      max-width: 600px;
-      margin: 20px auto;
-      position: relative;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      white-space: nowrap;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 10px;
-    }
+        /* Footer styling */
+        footer {
+            background-color: #eee;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
 
-    .slides {
-      display: inline-flex;
-      width: max-content;
-    }
+        /* NEW SLIDER IMPLEMENTATION STYLES */
+        .new-slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 513px; /* Reduced by 5% from 540px */
+            margin: 20px auto;
+            overflow: hidden; /* Hide scrollbars */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
 
-    .slides img, .slides video {
-      width: 600px;
-      max-width: 100%;
-      scroll-snap-align: start;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-right: 10px;
-    }
+        .new-slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth transition for slides */
+            scroll-snap-type: x mandatory; /* For smooth snapping */
+            -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
+        }
 
-    .faculty-section {
-      background-color: #f0f0ff;
-      border-left: 5px solid #4b0082;
-      padding: 20px;
-      margin-top: 30px;
-      border-radius: 10px;
-    }
+        .new-slider-item {
+            min-width: 100%; /* Each item takes full width of container */
+            box-sizing: border-box;
+            scroll-snap-align: start; /* Snap to the start of each item */
+            display: flex; /* Use flex to center content if needed */
+            justify-content: center;
+            align-items: center;
+        }
 
-    .faculty-section h2 {
-      color: #4b0082;
-    }
+        .new-slider-item img,
+        .new-slider-item video {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below images */
+            object-fit: cover; /* Ensure image covers the area */
+        }
 
-    .faculty-section ul {
-      list-style-type: none;
-      padding: 0;
-    }
+        .new-slider-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10; /* Ensure dots are above slides */
+        }
 
-    .faculty-section li {
-      padding: 8px 0;
-      font-weight: bold;
-    }
+        .new-slider-nav-dot {
+            display: block;
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-    .contact, .address, .cta {
-      background: #fef6ff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 20px;
-    }
+        .new-slider-nav-dot.active {
+            background-color: #4b0082;
+        }
+        /* END NEW SLIDER IMPLEMENTATION STYLES */
 
-    .cta p {
-      font-size: 1.1em;
-      color: #4b0082;
-    }
+        /* Redesigned Highlight Section for "Nursery to 10th Standard" */
+        .highlight-section {
+            background: linear-gradient(135deg, #e0f7fa, #bbdefb); /* Light blue gradient */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* More prominent shadow */
+            text-align: center; /* Center align all text content */
+            margin-top: 30px;
+            border: 1px solid #a7d9f7;
+            animation: fadeIn 1s ease-out; /* Fade in animation */
+        }
 
-    .form-section {
-      margin-top: 40px;
-      text-align: center;
-    }
+        .highlight-section h2 {
+            color: #0288d1; /* Darker blue for heading */
+            font-size: 2.2em; /* Slightly larger font */
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* More pronounced text shadow */
+            letter-spacing: 0.5px; /* Slightly increased letter spacing */
+        }
 
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
-    }
-  </style>
+        .highlight-section h3 {
+            color: #039be5; /* Medium blue for sub-heading */
+            font-size: 1.6em; /* Slightly larger font */
+            margin-bottom: 15px;
+            font-weight: bold; /* Make it bolder */
+        }
+
+        .highlight-section p {
+            color: #424242; /* Slightly darker text for readability */
+            font-size: 1.2em; /* Slightly larger font */
+            line-height: 1.8; /* Increased line height for better readability */
+            font-weight: 500;
+            max-width: 90%; /* Limit width for better readability on wider screens */
+            margin: 0 auto; /* Center the paragraph if max-width is applied */
+        }
+
+        /* Keyframe animation for fade in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Faculty Section Styling */
+        .faculty-section {
+            background-color: #f0f0ff; /* Light purple background */
+            border-left: 5px solid #4b0082; /* Left border in deep purple */
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .faculty-section h2 {
+            color: #4b0082; /* Deep purple heading */
+        }
+
+        .faculty-section ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0;
+        }
+
+        .faculty-section li {
+            padding: 8px 0;
+            font-weight: bold;
+        }
+
+        /* Contact, Address, CTA Box Styling */
+        .contact, .address, .cta {
+            background: #fef6ff; /* Very light purple background */
+            border: 1px solid #ddd; /* Light grey border */
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1em;
+            color: #4b0082; /* Deep purple text */
+        }
+
+        /* Form Section Styling */
+        .form-section {
+            margin-top: 40px;
+            text-align: center;
+            /* Added margin-bottom to create space before the next section */
+            margin-bottom: 30px;
+        }
+
+        /* Styling for the iframe for Google Form */
+        .form-section iframe {
+            width: 100%;
+            height: 600px; /* Adjust height as needed */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 15px; /* Space below the text */
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366; /* WhatsApp green */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-decoration: none;
+            z-index: 1000; /* Ensure it stays on top */
+            transition: transform 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1); /* Enlarge on hover */
+        }
+
+        /* ANIMATION CONTAINER AND ELEMENTS */
+        #animation-container {
+            position: fixed; /* Fixed to viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allows clicks to pass through to elements beneath */
+            z-index: -1; /* Behind other content */
+            overflow: hidden; /* Hide anything that goes beyond the viewport */
+        }
+
+        /* Common styles for animated elements */
+        .animated-element {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0;
+            transform: translateY(0);
+            animation-fill-mode: forwards; /* Keep the final state of the animation */
+            white-space: nowrap; /* Prevent numbers/symbols from wrapping */
+        }
+
+        /* Physics: Falling Particle */
+        .physics-particle {
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50; /* Green */
+            border-radius: 50%;
+            animation: fallAndFade 4s ease-out;
+        }
+
+        @keyframes fallAndFade {
+            0% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+            20% { opacity: 1; transform: translateY(0) scale(1); }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(100vh) scale(0.8); } /* Fall off screen */
+        }
+
+        /* Chemistry: Bubbling Effect */
+        .chemistry-bubble {
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 165, 0, 0.7); /* Orange, semi-transparent */
+            border-radius: 50%;
+            animation: bubbleUp 3s ease-out;
+        }
+
+        @keyframes bubbleUp {
+            0% { opacity: 0; transform: translateY(0) scale(0.5); }
+            30% { opacity: 1; transform: translateY(-20px) scale(1); }
+            100% { opacity: 0; transform: translateY(-100px) scale(0.7); } /* Float up and fade */
+        }
+
+        /* Math: Rotating Shape (Square) */
+        .math-shape {
+            width: 20px;
+            height: 20px;
+            background-color: #9C27B0; /* Purple */
+            transform: rotate(0deg);
+            animation: rotateAndFade 5s linear;
+        }
+
+        @keyframes rotateAndFade {
+            0% { opacity: 0; transform: rotate(0deg) scale(0.5); }
+            20% { opacity: 1; transform: rotate(720deg) scale(1); }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: rotate(1080deg) scale(0.7); }
+        }
+
+        /* Math: Floating Number */
+        .math-number {
+            color: #2196F3; /* Blue */
+            font-weight: bold;
+            animation: floatAndFade 4s ease-out;
+        }
+
+        @keyframes floatAndFade {
+            0% { opacity: 0; transform: translateY(0); }
+            20% { opacity: 1; transform: translateY(-20px); }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-80px); }
+        }
+        /* END ANIMATION CONTAINER AND ELEMENTS */
+
+
+        /* Responsive adjustments for smaller screens */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+                padding: 0 10px;
+            }
+            /* Ensure slider is full width on small screens */
+            .new-slider-container,
+            .new-slider-item img,
+            .new-slider-item video {
+                max-width: 100%;
+                width: 100%;
+            }
+            .highlight-section h2 {
+                font-size: 1.8em; /* Adjust for smaller screens */
+            }
+            .highlight-section h3 {
+                font-size: 1.2em;
+            }
+            .highlight-section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <script>
+        // Function to switch language based on selected option
+        function switchLang(lang) {
+            const elements = document.querySelectorAll('[data-en], [data-hi]');
+            elements.forEach(el => {
+                el.innerText = el.getAttribute(`data-${lang}`);
+            });
+        }
+
+        // DOMContentLoaded ensures the script runs after the HTML is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language to English
+            document.getElementById('lang').value = 'en';
+            switchLang('en');
+
+            // NEW SLIDER IMPLEMENTATION JAVASCRIPT
+            const sliderWrapper = document.querySelector('.new-slider-wrapper');
+            const sliderContainer = document.querySelector('.new-slider-container');
+            const sliderItems = document.querySelectorAll('.new-slider-item');
+            const slideCount = sliderItems.length;
+            const navContainer = document.querySelector('.new-slider-nav');
+
+            let currentIndex = 0;
+            let startTouchX = 0;
+            let endTouchX = 0;
+
+            // Function to update the slider position
+            function updateSliderPosition() {
+                const offset = -currentIndex * 100; // Move by 100% for each slide
+                sliderWrapper.style.transform = `translateX(${offset}%)`;
+                updateNavDots();
+            }
+
+            // Function to update navigation dots
+            function updateNavDots() {
+                const dots = document.querySelectorAll('.new-slider-nav-dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Create navigation dots
+            for (let i = 0; i < slideCount; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('new-slider-nav-dot');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateSliderPosition();
+                });
+                navContainer.appendChild(dot);
+            }
+
+            // Touch event listeners for swipe functionality
+            sliderContainer.addEventListener('touchstart', (e) => {
+                startTouchX = e.touches[0].clientX;
+            });
+
+            sliderContainer.addEventListener('touchmove', (e) => {
+                // Optional: Prevent default vertical scrolling if a horizontal swipe is detected
+                // This can sometimes make vertical scrolling difficult if not implemented carefully.
+                // For simplicity, we'll let the browser handle default scroll behavior for now.
+                endTouchX = e.touches[0].clientX;
+            });
+
+            sliderContainer.addEventListener('touchend', () => {
+                const swipeThreshold = 50; // Minimum pixels for a recognized swipe
+
+                if (startTouchX - endTouchX > swipeThreshold) {
+                    // Swiped left (move to next slide)
+                    currentIndex = (currentIndex + 1) % slideCount;
+                } else if (startTouchX - endTouchX < -swipeThreshold) {
+                    // Swiped right (move to previous slide)
+                    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                }
+                updateSliderPosition();
+            });
+
+            // Initialize slider position and dots
+            updateSliderPosition();
+            // END NEW SLIDER IMPLEMENTATION JAVASCRIPT
+
+            // ANIMATION LOGIC
+            const animationContainer = document.getElementById('animation-container');
+
+            const animationTypes = [
+                { class: 'physics-particle', content: '', duration: 4000 },
+                { class: 'chemistry-bubble', content: '', duration: 3000 },
+                { class: 'math-shape', content: '', duration: 5000 },
+                { class: 'math-number', content: 'Σ', duration: 4000 }, // Sigma for math
+                { class: 'math-number', content: 'π', duration: 4000 },  // Pi for math
+                { class: 'math-number', content: '∫', duration: 4000 }, // Integral for math
+                { class: 'physics-particle', content: '', duration: 4500 },
+                { class: 'chemistry-bubble', content: '', duration: 3500 },
+                { class: 'math-shape', content: '', duration: 5500 }
+            ];
+
+            function createRandomAnimation() {
+                const type = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+                const element = document.createElement('div');
+                element.classList.add('animated-element', type.class);
+
+                // Set random position within the viewport
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                // Ensure elements appear fully within the viewport initially
+                const elementSize = 50; // Approximate max size of an animated element
+                element.style.left = `${Math.random() * (viewportWidth - elementSize)}px`;
+                element.style.top = `${Math.random() * (viewportHeight - elementSize)}px`;
+
+                if (type.content) {
+                    element.textContent = type.content;
+                }
+
+                animationContainer.appendChild(element);
+
+                // Remove element after animation duration to prevent clutter
+                setTimeout(() => {
+                    element.remove();
+                }, type.duration);
+            }
+
+            // Start generating animations periodically (e.g., every 2 seconds)
+            setInterval(createRandomAnimation, 2000);
+            // END ANIMATION LOGIC
+        });
+    </script>
 </head>
 <body>
-  <header>
-    <h1>🌟 Spark Classes – Learning Today, Leading Tomorrow… 🌟</h1>
-  </header>
+    <!-- Animation container for floating physics, chemistry, and math elements -->
+    <div id="animation-container"></div>
 
-  <div class="container">
-    <div class="slider-container">
-      <div class="slides">
-        <img src="img1.jpg" alt="Classroom Image 1">
-        <img src="img2.jpg" alt="Classroom Image 2">
-        <video controls poster="video-thumbnail.jpg">
-          <source src="promo.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <header>
+        <h1 data-en="🌟 Spark Classes – Learning Today, Leading Tomorrow… 🌟" data-hi="🌟 स्पार्क क्लासेस – आज की शिक्षा, कल का नेतृत्व… 🌟">🌟 Spark Classes – Learning Today, Leading Tomorrow… 🌟</h1>
+    </header>
+
+    <div class="lang-switch">
+        <label for="lang">🌐 Language: </label>
+        <select id="lang" onchange="switchLang(this.value)">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+        </select>
     </div>
 
-    <h2>📚 Nursery to 10th Standard</h2>
-    <h3>🏫 MP & CBSE Board (Hindi & English Medium)</h3>
+    <div class="container">
+        <!-- NEW SLIDER IMPLEMENTATION HTML -->
+        <div class="new-slider-container">
+            <div class="new-slider-wrapper">
+                <div class="new-slider-item">
+                    <img src="https://placehold.co/513x300/E0E0E0/333333?text=Classroom+Image+1" onerror="this.src='https://placehold.co/513x300/E0E0E0/333333?text=Image+Load+Error'" alt="Classroom Image 1">
+                </div>
+                <div class="new-slider-item">
+                    <img src="https://placehold.co/513x300/D0D0D0/333333?text=Classroom+Image+2" onerror="this.src='https://placehold.co/513x300/D0D0D0/333333?text=Image+Load+Error'" alt="Classroom Image 2">
+                </div>
+                <div class="new-slider-item">
+                    <video controls poster="https://placehold.co/513x300/C0C0C0/333333?text=Video+Thumbnail">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> <!-- Example video source -->
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="new-slider-nav">
+                <!-- Navigation dots will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+        <!-- END NEW SLIDER IMPLEMENTATION HTML -->
 
-    <p>🎯 High-quality education with minimum fees in separate batches for Hindi and English medium students!</p>
+        <!-- Redesigned "Nursery to 10th Standard" section -->
+        <div class="highlight-section">
+            <h2 data-en="📚 Nursery to 10th Standard" data-hi="📚 नर्सरी से 10वीं तक">📚 Nursery to 10th Standard</h2>
+            <h3 data-en="🏫 MP & CBSE Board (Hindi & English Medium)" data-hi="🏫 एमपी एवं सीबीएसई बोर्ड (हिंदी और इंग्लिश मीडियम)">🏫 MP & CBSE Board (Hindi and English Medium)</h3>
+            <p data-en="🎯 High-quality education with minimum fees in separate batches for Hindi and English medium students!" data-hi="🎯 न्यूनतम शुल्क में उच्च गुणवत्ता वाली शिक्षा (हिंदी और इंग्लिश मीडियम के लिए अलग-अलग बैच)">🎯 High-quality education with minimum fees in separate batches for Hindi and English medium students!</p>
+        </div>
 
-    <div class="faculty-section">
-      <h2>👨‍🏫 Our Experienced Faculty</h2>
-      <ul>
-        <li>Er. Deepak Sir</li>
-        <li>Er. Anil Sir</li>
-        <li>Er. Shivangi Ma’am</li>
-      </ul>
+        <div class="faculty-section">
+            <h2 data-en="👨‍🏫 Our Experienced Faculty" data-hi="👨‍🏫 हमारे अनुभवी शिक्षक">👨‍🏫 Our Experienced Faculty</h2>
+            <ul>
+                <li>Er. Deepak Sir</li>
+                <li>Er. Anil Sir</li>
+                <li>Er. Shivangi Ma’am</li>
+            </ul>
+        </div>
+
+        <div class="contact">
+            <h2 data-en="📞 Contact Us Today!" data-hi="📞 आज ही संपर्क करें!">📞 Contact Us Today!</h2>
+            <p>📱 7509775419 | 8878414478 | 9644391224</p>
+        </div>
+
+        <div class="address">
+            <h2 data-en="📍 Address:" data-hi="📍 पता:">📍 Address:</h2>
+            <p>Opp. Sagar Avenue, 10th Battalion, Makronia, Sagar (M.P.)</p>
+        </div>
+
+        <div class="cta">
+            <p data-en="✨ Give your child the right start with expert guidance and a supportive environment." data-hi="✨ अपने बच्चे को सही शुरुआत दें विशेषज्ञ मार्गदर्शन और सहयोगी वातावरण के साथ।">✨ Give your child the right start with expert guidance and a supportive environment.</p>
+            <p data-en="Join Spark Classes Now!" data-hi="अभी स्पार्क क्लासेस में शामिल हों!"><strong>Join Spark Classes Now!</strong></p>
+        </div>
+
+        <!-- Moved Form Section before Social Icons and re-embedded iframe -->
+        <div class="form-section">
+            <h2 data-en="📨 Send Us Your Query" data-hi="📨 हमें अपनी जानकारी भेजें">📨 Send Us Your Query</h2>
+            <p data-en="Fill the form below to reach out to us. We'll get back to you soon!" data-hi="नीचे दिया गया फॉर्म भरें, हम जल्द ही संपर्क करेंगे।">Fill the form below to reach out to us. We'll get back to you soon!</p>
+            <!-- Re-embedding Google Form via iframe. Note: Google Forms often block embedding due to security policies (X-Frame-Options). -->
+            <iframe src="https://forms.gle/e4mJ2vtvqhp3358g8" title="Google Form Query"></iframe>
+        </div>
+
+        <div class="social">
+            <h3 data-en="Connect With Us" data-hi="हमसे जुड़ें">Connect With Us</h3>
+            <a href="https://wa.me/918085522630" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="tel:7509775419" aria-label="Call">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+        </div>
     </div>
 
-    <div class="contact">
-      <h2>📞 Contact Us Today!</h2>
-      <p>📱 7509775419 | 8878414478 | 9644391224</p>
-    </div>
+    <a href="https://wa.me/918085522630" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
 
-    <div class="address">
-      <h2>📍 Address:</h2>
-      <p>Opp. Sagar Avenue, 10th Battalion, Makronia, Sagar (M.P.)</p>
-    </div>
-
-    <div class="cta">
-      <p>✨ Give your child the right start with expert guidance and a supportive environment.</p>
-      <p><strong>Join Spark Classes Now!</strong></p>
-    </div>
-
-    <div class="social">
-      <h3>Connect With Us</h3>
-      <a href="https://wa.me/918085522630" target="_blank" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="tel:7509775419" aria-label="Call">
-        <i class="fas fa-phone-alt"></i>
-      </a>
-    </div>
-
-    <div class="form-section">
-      <h2>📨 Send Us Your Query</h2>
-      <p>Fill the form below to reach out to us. We'll get back to you soon!</p>
-      <iframe src="https://forms.gle/K8HvkKxSsiAQRyn2A" title="Google Form Query"></iframe>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Spark Classes – All Rights Reserved</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Spark Classes – All Rights Reserved</p>
+    </footer>
 </body>
 </html>
