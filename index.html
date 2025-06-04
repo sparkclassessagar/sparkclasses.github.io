@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spark Classes - Self Study Point</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
     header { background: #d62828; color: white; padding: 20px; text-align: center; }
     nav { text-align: center; margin: 20px 0; }
-    .container { padding: 20px; max-width: 1200px; margin: auto; }
-    .slider img, .slider video { width: 100%; max-height: 400px; object-fit: cover; }
-    form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: auto; }
-    input, textarea { padding: 10px; font-size: 1em; }
-    button { padding: 10px; background: #0077cc; color: white; border: none; cursor: pointer; }
+    .container { padding: 20px; max-width: 1200px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .slider { margin-bottom: 20px; }
+    .slider img, .slider video { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; }
+    .form-map-wrapper { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: flex-start; margin-top: 20px; }
+    .form-map-wrapper form { flex: 1; min-width: 280px; max-width: 500px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .form-map-wrapper iframe { flex: 1; min-width: 280px; height: 250px; border: none; border-radius: 10px; }
+    input, textarea { width: 100%; padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    button { padding: 10px; background: #0077cc; color: white; border: none; cursor: pointer; border-radius: 5px; }
     .social { text-align: center; margin-top: 20px; }
     .social a { margin: 0 10px; font-size: 1.5em; color: #333; }
     footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
-    iframe { width: 100%; height: 300px; border: none; }
     #language-switcher { margin-top: 10px; text-align: center; }
   </style>
 </head>
@@ -33,7 +36,9 @@
   </header>
 
   <div class="slider">
-    <img src="/mnt/data/WhatsApp Image 2025-06-04 at 5.13.34 PM.jpeg" alt="Spark Library Image">
+    <div><img src="/mnt/data/WhatsApp Image 2025-06-04 at 5.13.34 PM.jpeg" alt="Spark Library Image"></div>
+    <div><img src="https://via.placeholder.com/1200x400?text=Study+Space+2" alt="Study Space"></div>
+    <div><video controls><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
   </div>
 
   <div class="container">
@@ -49,16 +54,16 @@
       <li data-en="Charging Facility for Mobile and Laptop" data-hi="मोबाइल एवं लैपटॉप के लिये चार्जिंग व्यवस्था">Charging Facility for Mobile and Laptop</li>
     </ul>
 
-    <h2 data-en="Location" data-hi="स्थान">Location</h2>
-    <iframe src="https://www.google.com/maps?q=Pantnagar+Ward+Pul,+Sagar,+Madhya+Pradesh&output=embed"></iframe>
-
-    <h2 data-en="Send a Query" data-hi="प्रश्न पूछें">Send a Query</h2>
-    <form action="https://formspree.io/f/maylknkl" method="POST">
-      <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
-      <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
-      <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
-      <button type="submit" data-en="Submit" data-hi="सबमिट करें">Submit</button>
-    </form>
+    <h2 data-en="Location & Query" data-hi="स्थान और प्रश्न">Location & Query</h2>
+    <div class="form-map-wrapper">
+      <form action="https://formspree.io/f/maylknkl" method="POST">
+        <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
+        <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
+        <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
+        <button type="submit" data-en="Submit" data-hi="सबमिट करें">Submit</button>
+      </form>
+      <iframe src="https://www.google.com/maps?q=Pantnagar+Ward+Pul,+Sagar,+Madhya+Pradesh&output=embed"></iframe>
+    </div>
 
     <div class="social">
       <h3 data-en="Connect with us" data-hi="हमसे जुड़ें">Connect with us</h3>
@@ -74,7 +79,19 @@
     <p data-en="Contact: +91 8085522630, +91 6263989064" data-hi="संपर्क: +91 8085522630, +91 6263989064">Contact: +91 8085522630, +91 6263989064</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
+    $('.slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear',
+      autoplay: true,
+      autoplaySpeed: 3000
+    });
+
     function switchLanguage(lang) {
       document.querySelectorAll('[data-' + lang + ']').forEach(el => {
         el.textContent = el.getAttribute('data-' + lang);
