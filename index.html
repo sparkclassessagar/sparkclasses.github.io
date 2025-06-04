@@ -2,144 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Bilingual Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark Classes - Learning Today, Leading Tomorrow</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
-
-    header {
-      background-color: #4a90e2;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .language-select {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-
-    .slider {
-      width: 100%;
-      max-height: 400px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .slides {
-      display: flex;
-      transition: transform 1s ease;
-      width: 300%;
-    }
-
-    .slide {
-      width: 100%;
-      flex-shrink: 0;
-    }
-
-    .slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .content {
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.5s;
-    }
-
-    @media (max-width: 600px) {
-      .content {
-        padding: 1rem;
-      }
-
-      header {
-        font-size: 1.2rem;
-      }
-    }
-
-    button {
-      margin-top: 1rem;
-      padding: 0.6rem 1rem;
-      background-color: #4a90e2;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #357ABD;
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f0f4f8; color: #333; }
+    header { background: #003566; color: white; padding: 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header p { margin: 5px 0; font-style: italic; }
+    #language-switcher { margin: 10px 0; }
+    .container { padding: 20px; max-width: 1200px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .slider { margin-bottom: 20px; }
+    .slider img, .slider video { width: 100%; height: auto; border-radius: 10px; }
+    ul { padding-left: 20px; }
+    form { display: flex; flex-direction: column; gap: 10px; background: #eef2f7; padding: 20px; border-radius: 10px; }
+    input, textarea { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+    button { padding: 10px; background: #0077cc; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+    button:hover { background: #005fa3; }
+    .social { text-align: center; margin-top: 20px; }
+    .social a { margin: 0 10px; font-size: 1.8em; color: #003566; transition: color 0.3s; }
+    .social a:hover { color: #0077cc; }
+    .map-form-wrapper { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+    iframe { flex: 1; min-width: 300px; height: 250px; border: none; border-radius: 10px; }
+    form { flex: 1; min-width: 300px; }
+    footer { text-align: center; background: #003566; color: white; padding: 15px; margin-top: 40px; }
+    @media (max-width: 768px) {
+      .map-form-wrapper { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1 id="title">Welcome to Our Website</h1>
-    <select class="language-select" id="langSelect" onchange="changeLanguage()">
-      <option value="en">English</option>
-      <option value="hi">हिन्दी</option>
-    </select>
+    <h1 data-en="Spark Classes" data-hi="स्पार्क क्लासेस">Spark Classes</h1>
+    <p data-en="Learning Today, Leading Tomorrow" data-hi="आज सीखो, कल नेतृत्व करो">Learning Today, Leading Tomorrow</p>
+    <div id="language-switcher">
+      <label for="language">Language / भाषा:</label>
+      <select id="language" onchange="switchLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
   </header>
 
-  <div class="slider" id="slider">
-    <div class="slides">
-      <div class="slide"><img src="img1.jpg" alt="Slide 1"></div>
-      <div class="slide"><img src="img2.jpg" alt="Slide 2"></div>
-      <div class="slide"><img src="banner.jpg" alt="Slide 3"></div>
+  <div class="slider">
+    <div><img src="img1.jpg" alt="Study Area"></div>
+    <div><img src="img2.jpg" alt="Classroom"></div>
+    <div><img src="banner.jpg" alt="Spark Banner"></div>
+  </div>
+
+  <div class="container">
+    <h2 data-en="Classes Nursery to 10th (MP & CBSE Board)" data-hi="कक्षा नर्सरी से 10वीं तक (MP एवं CBSE बोर्ड)">Classes Nursery to 10th (MP & CBSE Board)</h2>
+    <ul>
+      <li data-en="Separate Hindi and English Medium Batches" data-hi="हिन्दी एवं अंग्रेजी माध्यम के अलग-अलग बैच">Separate Hindi and English Medium Batches</li>
+      <li data-en="Best Education at Minimum Fee" data-hi="न्यूनतम फीस में बेहतर शिक्षा">Best Education at Minimum Fee</li>
+      <li data-en="Taught by Er. Deepak Sir, Er. Anil Sir, and Er. Shivangi Ma'am" data-hi="Er. दीपक सर, Er. अनिल सर और Er. शिवांगी मैम द्वारा पढ़ाया जाता है">Taught by Er. Deepak Sir, Er. Anil Sir, and Er. Shivangi Ma'am</li>
+    </ul>
+
+    <div class="map-form-wrapper">
+      <iframe src="https://www.google.com/maps?q=10th+Battalion,+Makronia,+Sagar+M.P.&output=embed"></iframe>
+
+      <form action="https://formspree.io/f/maylknkl" method="POST">
+        <h3 data-en="Send a Query" data-hi="प्रश्न पूछें">Send a Query</h3>
+        <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
+        <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
+        <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
+        <button type="submit" data-en="Submit" data-hi="सबमिट करें">Submit</button>
+      </form>
+    </div>
+
+    <div class="social">
+      <h3 data-en="Connect with us" data-hi="हमसे जुड़ें">Connect with us</h3>
+      <a href="https://wa.me/917509775419" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="tel:+917509775419"><i class="fas fa-phone"></i></a>
     </div>
   </div>
 
-  <div class="content">
-    <p id="introText">This is a beautiful bilingual website built for both mobile and desktop devices.</p>
-    <button onclick="alertMessage()" id="alertButton">Click Me</button>
-  </div>
+  <footer>
+    <p data-en="Address: In front of Sagar Avenue, 10th Battalion, Makronia, Sagar, M.P." data-hi="पता: सागर एवेन्यू के सामने, 10वीं बटालियन, मकरोनिया, सागर, म.प्र.">Address: In front of Sagar Avenue, 10th Battalion, Makronia, Sagar, M.P.</p>
+    <p data-en="Contact: 7509775419, 8878414478, 9644391224" data-hi="संपर्क: 7509775419, 8878414478, 9644391224">Contact: 7509775419, 8878414478, 9644391224</p>
+  </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    // Auto slider logic
-    let slideIndex = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = 3;
+    $('.slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: true,
+      fade: false,
+      cssEase: 'ease-in-out'
+    });
 
-    setInterval(() => {
-      slideIndex = (slideIndex + 1) % totalSlides;
-      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
-    }, 3000);
-
-    // Translation logic
-    const translations = {
-      en: {
-        title: "Welcome to Our Website",
-        introText: "This is a beautiful bilingual website built for both mobile and desktop devices.",
-        alertButton: "Click Me"
-      },
-      hi: {
-        title: "हमारी वेबसाइट में आपका स्वागत है",
-        introText: "यह मोबाइल और डेस्कटॉप दोनों के लिए बनाई गई सुंदर द्विभाषी वेबसाइट है।",
-        alertButton: "मुझे क्लिक करें"
-      }
-    };
-
-    function changeLanguage() {
-      const lang = document.getElementById("langSelect").value;
-      document.getElementById("title").textContent = translations[lang].title;
-      document.getElementById("introText").textContent = translations[lang].introText;
-      document.getElementById("alertButton").textContent = translations[lang].alertButton;
-    }
-
-    function alertMessage() {
-      const lang = document.getElementById("langSelect").value;
-      alert(lang === "hi" ? "आपने बटन क्लिक किया!" : "You clicked the button!");
+    function switchLanguage(lang) {
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
     }
   </script>
-
 </body>
 </html>
