@@ -15,6 +15,50 @@
     footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
     #language-switcher { text-align: center; margin: 10px 0; }
     select { padding: 5px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc; }
+    .slider-square {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Optional: limits max size on large screens */
+  margin: auto;
+}
+
+.slider-square::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+
+.slider-square .slider-content {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.slider-content img,
+.slider-content video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    .social-media {
+  margin-top: 30px;
+  text-align: center;
+}
+.social-media a {
+  margin: 0 15px;
+  color: #4b0082;
+  font-size: 1.8em;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-media a:hover {
+  color: #ff6600;
+  transform: scale(1.2);
+}
+
+
   </style>
 </head>
 <body>
@@ -44,6 +88,16 @@
       <li data-en="Er. Shivangi Ma’am" data-hi="इंजी. शिवांगी मैम">इंजी. शिवांगी मैम</li>
     </ul>
 
+    <div class="slider-square">
+  <div class="slider-content slider">
+    <div><img src="banner.jpg" alt="Image 1"></div>
+    <div><img src="img1.jpg" alt="Image 2"></div>
+     <div><img src="img2.jpg" alt="Image 3"></div>
+    <div><video controls><source src="video.mp4" type="video/mp4"></video></div>
+  </div>
+</div>
+
+
     <div class="contact">
       <h2 data-en="Contact Us Today!" data-hi="आज ही संपर्क करें!">आज ही संपर्क करें!</h2>
       <p data-en="Mob:" data-hi="मोबाइल:">मोबाइल:</p>
@@ -61,12 +115,21 @@
       अपने बच्चे को सही शुरुआत दें – अनुभवी मार्गदर्शन और सहयोगी माहौल के साथ। आज ही स्पार्क क्लासेस जॉइन करें!
     </p>
 
-    <div class="social">
-      <h3 data-en="Follow us on social media" data-hi="सोशल मीडिया पर हमें फॉलो करें">सोशल मीडिया पर हमें फॉलो करें</h3>
-      <a href="https://wa.me/918085522630" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
+   <div class="social-media">
+  <h3 data-en="Connect With Us" data-hi="हमसे जुड़ें">हमसे जुड़ें</h3>
+  <a href="https://wa.me/918085522630" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="tel:7509775419" aria-label="Phone">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+</div>
   </div>
 
   <footer>
