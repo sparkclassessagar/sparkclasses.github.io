@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark Classes - Self Study Point</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #d62828; color: white; padding: 20px; text-align: center; }
+    nav { text-align: center; margin: 20px 0; }
+    .container { padding: 20px; max-width: 1200px; margin: auto; }
+    .slider img, .slider video { width: 100%; max-height: 400px; object-fit: cover; }
+    form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: auto; }
+    input, textarea { padding: 10px; font-size: 1em; }
+    button { padding: 10px; background: #0077cc; color: white; border: none; cursor: pointer; }
+    .social { text-align: center; margin-top: 20px; }
+    .social a { margin: 0 10px; font-size: 1.5em; color: #333; }
+    footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
+    iframe { width: 100%; height: 300px; border: none; }
+    #language-switcher { margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 data-en="SPARK CLASSES" data-hi="स्पार्क क्लासेस">SPARK CLASSES</h1>
+    <p data-en="Help to Build Tomorrow - Self Study Point" data-hi="भविष्य निर्माण में मदद - सेल्फ स्टडी पॉइंट">Help to Build Tomorrow - Self Study Point</p>
+    <div id="language-switcher">
+      <button onclick="switchLanguage('en')">English</button>
+      <button onclick="switchLanguage('hi')">हिन्दी</button>
+    </div>
+  </header>
+
+  <div class="slider">
+    <img src="/mnt/data/WhatsApp Image 2025-06-04 at 5.13.34 PM.jpeg" alt="Spark Library Image">
+  </div>
+
+  <div class="container">
+    <h2 data-en="Facilities and Benefits:" data-hi="सुविधाएं और लाभ:">Facilities and Benefits:</h2>
+    <ul>
+      <li data-en="Free Registration" data-hi="फ्री रजिस्ट्रेशन">Free Registration</li>
+      <li data-en="Peaceful Environment" data-hi="शांत वातावरण">Peaceful Environment</li>
+      <li data-en="Excellent Seating Arrangement" data-hi="बैठने की उत्तम व्यवस्था">Excellent Seating Arrangement</li>
+      <li data-en="Separate Seating for Girls" data-hi="लड़कियों के लिये अलग बैठक व्यवस्था">Separate Seating for Girls</li>
+      <li data-en="High-Speed Internet" data-hi="हाई स्पीड इंटरनेट">High-Speed Internet</li>
+      <li data-en="Camera Surveillance" data-hi="कैमरा">Camera Surveillance</li>
+      <li data-en="Drinking Water" data-hi="पानी">Drinking Water</li>
+      <li data-en="Charging Facility for Mobile and Laptop" data-hi="मोबाइल एवं लैपटॉप के लिये चार्जिंग व्यवस्था">Charging Facility for Mobile and Laptop</li>
+    </ul>
+
+    <h2 data-en="Location" data-hi="स्थान">Location</h2>
+    <iframe src="https://www.google.com/maps?q=Pantnagar+Ward+Pul,+Sagar,+Madhya+Pradesh&output=embed"></iframe>
+
+    <h2 data-en="Send a Query" data-hi="प्रश्न पूछें">Send a Query</h2>
+    <form action="https://formspree.io/f/maylknkl" method="POST">
+      <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
+      <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
+      <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
+      <button type="submit" data-en="Submit" data-hi="सबमिट करें">Submit</button>
+    </form>
+
+    <div class="social">
+      <h3 data-en="Connect with us" data-hi="हमसे जुड़ें">Connect with us</h3>
+      <a href="https://wa.me/918085522630" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="tel:+918085522630"><i class="fas fa-phone"></i></a>
+    </div>
+  </div>
+
+  <footer>
+    <p data-en="Address: Pantnagar Ward Pul Ke Paas, Sagar (M.P.)" data-hi="पता: पंतनगर वार्ड पुल के पास, सागर (म.प्र.)">Address: Pantnagar Ward Pul Ke Paas, Sagar (M.P.)</p>
+    <p data-en="Contact: +91 8085522630, +91 6263989064" data-hi="संपर्क: +91 8085522630, +91 6263989064">Contact: +91 8085522630, +91 6263989064</p>
+  </footer>
+
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+    }
+  </script>
+</body>
+</html>
