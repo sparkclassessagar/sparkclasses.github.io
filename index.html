@@ -6,30 +6,6 @@
   <title>Spark Classes – Learning Today, Leading Tomorrow…</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-
-
-    .social-buttons {
-        margin-top: 40px;
-        text-align: center;
-    }
-
-    .social-buttons a {
-        display: inline-block;
-        margin: 10px;
-        padding: 12px 20px;
-        border-radius: 30px;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        transition: background-color 0.3s ease;
-    }
-
-    .call-btn { background-color: #28a745; }         /* Green */
-    .whatsapp-btn { background-color: #25D366; }     /* WhatsApp Green */
-    .facebook-btn { background-color: #3b5998; }     /* Facebook Blue */
-    .instagram-btn { background-color: #C13584; }    /* Instagram Pink */
-</style>
-  <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -62,33 +38,29 @@
       padding-left: 20px;
     }
 
-   
+    .contact, .address, .cta, .social {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .social a {
+      margin: 0 15px;
+      font-size: 1.8em;
+      color: #4b0082;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social a:hover {
+      color: #ff6600;
+      transform: scale(1.2);
+    }
 
     footer {
       background-color: #eee;
       text-align: center;
       padding: 10px;
       margin-top: 40px;
-
-      .slider {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    margin: 20px 0;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-}
-
-.slider img,
-.slider video {
-    flex: 0 0 auto;
-    width: 90vw;              
-    max-width: 300px;         
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    scroll-snap-align: center;
-}
     }
   </style>
 </head>
@@ -109,27 +81,6 @@
       <li>Er. Anil Sir</li>
       <li>Er. Shivangi Ma’am</li>
     </ul>
-      <div class="slider">
-  <!-- Image -->
- 
-         <img src="img1.jpg" alt="img1">
-    
-         <img src="img2.jpg" alt="img2">
-
-  <!-- Video
-
-
-        <video controls width="300">
- <source src="video2.mp4" type="video/mp4">
-            </video>
-
-         <video controls width="300">
- <source src="video3.mp4" type="video/mp4">
-            </video>  -->
-            
-       
-      
-</div>
 
     <div class="contact">
       <h2>📞 Contact Us Today!</h2>
@@ -146,12 +97,21 @@
       <p><strong>Join Spark Classes Now!</strong></p>
     </div>
 
-    <div class="social-buttons">
-    <a class="call-btn" href="tel:+917509769044">📞 कॉल करें</a>
-    <a class="whatsapp-btn" href="https://wa.me/917509769044" target="_blank">💬 WhatsApp</a>
-    <a class="facebook-btn" href="https://www.facebook.com/rupesh.sahu.713395" target="_blank">📘 Facebook</a>
-    <a class="instagram-btn" href="https://www.instagram.com/0rupesh0/" target="_blank">📷 Instagram</a>
-</div>
+    <div class="social">
+      <h3>Connect With Us</h3>
+      <a href="https://wa.me/918085522630" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="tel:7509775419" aria-label="Call">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+    </div>
   </div>
 
   <footer>
