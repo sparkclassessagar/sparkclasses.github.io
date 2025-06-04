@@ -62,6 +62,34 @@
       padding: 10px;
       margin-top: 40px;
     }
+
+    .slider {
+      position: relative;
+      max-width: 100%;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img, .slides video {
+      width: 100%;
+      height: auto;
+      flex: 1 0 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
   </style>
 </head>
 <body>
@@ -70,6 +98,17 @@
   </header>
 
   <div class="container">
+    <div class="slider">
+      <div class="slides">
+        <img src="img1.jpg" alt="Classroom Image 1">
+        <img src="img2.jpg" alt="Classroom Image 2">
+        <!--video autoplay muted loop>
+          <!source src="promo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video-->
+      </div>
+    </div>
+
     <h2>📚 Nursery to 10th Standard</h2>
     <h3>🏫 MP & CBSE Board (Hindi & English Medium)</h3>
 
