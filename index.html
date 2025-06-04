@@ -2,83 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spark Classes - Nursery to 10th</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Bilingual Website</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-    header { background: #0d47a1; color: white; padding: 20px; text-align: center; }
-    nav { text-align: center; margin: 20px 0; }
-    .container { padding: 20px; max-width: 1200px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .slider { margin-bottom: 20px; }
-    .slider img, .slider video { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; }
-    form, .map-form-wrapper { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
-    form { flex: 1 1 45%; flex-direction: column; display: flex; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    input, textarea { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; }
-    button { padding: 10px; background: #0077cc; color: white; border: none; cursor: pointer; border-radius: 5px; }
-    .social { text-align: center; margin-top: 20px; }
-    .social a { margin: 0 10px; font-size: 1.5em; color: #333; }
-    footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
-    iframe { width: 100%; height: 200px; border: none; border-radius: 10px; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .language-select {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .slider {
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 1s ease;
+      width: 300%;
+    }
+
+    .slide {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .content {
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.5s;
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        padding: 1rem;
+      }
+
+      header {
+        font-size: 1.2rem;
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      background-color: #4a90e2;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #357ABD;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Spark Classes</h1>
-    <p>Learning Today, Leading Tomorrow...</p>
-    <h2 style="color: yellow; margin-top: 10px;">कक्षा नर्सरी से दसवीं तक</h2>
-    <h3 style="color: #ffeb3b;">MP & CBSE BOARD</h3>
-    <p>हिन्दी एवं अंग्रेजी माध्यम के अलग-अलग बैच न्यूनतम फीस में बेहतर शिक्षा</p>
+    <h1 id="title">Welcome to Our Website</h1>
+    <select class="language-select" id="langSelect" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+    </select>
   </header>
 
-  <div class="slider">
-    <div><img src="/mnt/data/WhatsApp Image 2025-06-04 at 18.00.40_0dbd35d2.jpg" alt="Spark Classes Banner"></div>
-    <div><img src="https://via.placeholder.com/1200x400?text=Classroom+Image" alt="Classroom"></div>
-  </div>
-
-  <div class="container">
-    <h2>Our Faculty</h2>
-    <p>Er. Deepak Sir, Er. Anil Sir, Er. Shivangi Ma'am</p>
-
-    <div class="map-form-wrapper">
-      <form action="https://formspree.io/f/maylknkl" method="POST">
-        <input type="text" name="name" placeholder="Your Name / आपका नाम" required>
-        <input type="email" name="email" placeholder="Your Email / आपका ईमेल" required>
-        <textarea name="message" placeholder="Your Query / आपका प्रश्न" rows="5" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-
-      <iframe src="https://www.google.com/maps?q=10th+Battalion,+Makronia,+Sagar,+Madhya+Pradesh&output=embed"></iframe>
-    </div>
-
-    <div class="social">
-      <h3>Connect with us</h3>
-      <a href="https://wa.me/917509775419" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="tel:+917509775419"><i class="fas fa-phone"></i></a>
+  <div class="slider" id="slider">
+    <div class="slides">
+      <div class="slide"><img src="img1.jpg" alt="Slide 1"></div>
+      <div class="slide"><img src="img2.jpg" alt="Slide 2"></div>
+      <div class="slide"><img src="banner.jpg" alt="Slide 3"></div>
     </div>
   </div>
 
-  <footer>
-    <p>पता: सागर एवेन्यू के सामने, 10वीं बटालियन, मकरोनिया, सागर म.प्र.</p>
-    <p>Mob: 7509775419, 8878414478, 9644391224</p>
-  </footer>
+  <div class="content">
+    <p id="introText">This is a beautiful bilingual website built for both mobile and desktop devices.</p>
+    <button onclick="alertMessage()" id="alertButton">Click Me</button>
+  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    $('.slider').slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      fade: true,
-      cssEase: 'linear',
-      autoplay: true,
-      autoplaySpeed: 3000
-    });
+    // Auto slider logic
+    let slideIndex = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = 3;
+
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }, 3000);
+
+    // Translation logic
+    const translations = {
+      en: {
+        title: "Welcome to Our Website",
+        introText: "This is a beautiful bilingual website built for both mobile and desktop devices.",
+        alertButton: "Click Me"
+      },
+      hi: {
+        title: "हमारी वेबसाइट में आपका स्वागत है",
+        introText: "यह मोबाइल और डेस्कटॉप दोनों के लिए बनाई गई सुंदर द्विभाषी वेबसाइट है।",
+        alertButton: "मुझे क्लिक करें"
+      }
+    };
+
+    function changeLanguage() {
+      const lang = document.getElementById("langSelect").value;
+      document.getElementById("title").textContent = translations[lang].title;
+      document.getElementById("introText").textContent = translations[lang].introText;
+      document.getElementById("alertButton").textContent = translations[lang].alertButton;
+    }
+
+    function alertMessage() {
+      const lang = document.getElementById("langSelect").value;
+      alert(lang === "hi" ? "आपने बटन क्लिक किया!" : "You clicked the button!");
+    }
   </script>
+
 </body>
 </html>
