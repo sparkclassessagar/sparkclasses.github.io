@@ -7,525 +7,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Base styles for the body and overall layout */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f9f9f9;
-            color: #333;
-        }
-          /* Custom styles for the "Samprate" look, applied only to the faculty-section-samprate class */
-        .faculty-section-samprate {
-            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); /* Subtle gradient */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
-        }
-        .faculty-section-samprate:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Even more pronounced shadow on hover */
-        }
-
-        /* Header styling */
-        header {
-            background-color: #4b0082; /* Deep purple */
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Language switch dropdown styling */
-        .lang-switch {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* Main content container styling */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            position: relative; /* Needed for z-index context */
-            z-index: 1; /* Ensure content is above animations */
-        }
-
-        /* General spacing for headings, paragraphs, and lists */
-        h1, h2, p, ul {
-            margin: 15px 0;
-        }
-
-        /* List item indentation */
-        ul {
-            padding-left: 20px;
-        }
-
-        /* Section styling for contact, address, call to action, and social media */
-        .contact, .address, .cta, .social {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        /* Social media links styling */
-        .social a {
-            margin: 0 15px;
-            font-size: 1.8em;
-            color: #4b0082; /* Deep purple */
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
-        }
-
-        .social a:hover {
-            color: #ff6600; /* Orange on hover */
-            transform: scale(1.2); /* Slightly enlarge on hover */
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #eee;
-            text-align: center;
-            padding: 10px;
-            margin-top: 40px;
-        }
-
-        /* NEW SLIDER IMPLEMENTATION STYLES */
-        .new-slider-container {
-            position: relative;
-            width: 100%;
-            max-width: 513px; /* Reduced by 5% from 540px */
-            margin: 20px auto;
-            overflow: hidden; /* Hide scrollbars */
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-        }
-
-        .new-slider-wrapper {
-            display: flex;
-            transition: transform 0.5s ease-in-out; /* Smooth transition for slides */
-            scroll-snap-type: x mandatory; /* For smooth snapping */
-            -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
-        }
-
-        .new-slider-item {
-            min-width: 100%; /* Each item takes full width of container */
-            box-sizing: border-box;
-            scroll-snap-align: start; /* Snap to the start of each item */
-            display: flex; /* Use flex to center content if needed */
-            justify-content: center;
-            align-items: center;
-        }
-
-        .new-slider-item img,
-        .new-slider-item video {
-            width: 100%;
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove extra space below images */
-            object-fit: cover; /* Ensure image covers the area */
-        }
-
-        .new-slider-nav {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 10; /* Ensure dots are above slides */
-        }
-
-        .new-slider-nav-dot {
-            display: block;
-            width: 10px;
-            height: 10px;
-            background: #ddd;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .new-slider-nav-dot.active {
-            background-color: #4b0082;
-        }
-        /* END NEW SLIDER IMPLEMENTATION STYLES */
-
-        /* Redesigned Highlight Section for "Nursery to 10th Standard" */
-        .highlight-section {
-            background: linear-gradient(135deg, #e0f7fa, #bbdefb); /* Light blue gradient */
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* More prominent shadow */
-            text-align: center; /* Center align all text content */
-            margin-top: 30px;
-            border: 1px solid #a7d9f7;
-            animation: fadeIn 1s ease-out; /* Fade in animation */
-        }
-
-        .highlight-section h2 {
-            color: #0288d1; /* Darker blue for heading */
-            font-size: 2.2em; /* Slightly larger font */
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* More pronounced text shadow */
-            letter-spacing: 0.5px; /* Slightly increased letter spacing */
-        }
-
-        .highlight-section h3 {
-            color: #039be5; /* Medium blue for sub-heading */
-            font-size: 1.6em; /* Slightly larger font */
-            margin-bottom: 15px;
-            font-weight: bold; /* Make it bolder */
-        }
-
-        .highlight-section p {
-            color: #424242; /* Slightly darker text for readability */
-            font-size: 1.2em; /* Slightly larger font */
-            line-height: 1.8; /* Increased line height for better readability */
-            font-weight: 500;
-            max-width: 90%; /* Limit width for better readability on wider screens */
-            margin: 0 auto; /* Center the paragraph if max-width is applied */
-        }
-
-        /* Keyframe animation for fade in */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-
-        /* Faculty Section Styling */
-        .faculty-section {
-            background-color: #f0f0ff; /* Light purple background */
-            border-left: 5px solid #4b0082; /* Left border in deep purple */
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
-
-        .faculty-section h2 {
-            color: #4b0082; /* Deep purple heading */
-        }
-
-        .faculty-section ul {
-            list-style-type: none; /* Remove default bullet points */
-            padding: 0;
-        }
-
-        .faculty-section li {
-            padding: 8px 0;
-            font-weight: bold;
-        }
-
-        /* Contact, Address, CTA Box Styling */
-        .contact, .address, .cta {
-            background: #fef6ff; /* Very light purple background */
-            border: 1px solid #ddd; /* Light grey border */
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-
-        .cta p {
-            font-size: 1.1em;
-            color: #4b0082; /* Deep purple text */
-        }
-
-        /* Form Section Styling */
-        .form-section {
-            margin-top: 40px;
-            text-align: center;
-            /* Added margin-bottom to create space before the next section */
-            margin-bottom: 30px;
-        }
-
-        /* Styling for the iframe for Google Form */
-        .form-section iframe {
-            width: 100%;
-            height: 600px; /* Adjust height as needed */
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 15px; /* Space below the text */
-        }
-
-        /* Floating WhatsApp Button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366; /* WhatsApp green */
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            text-decoration: none;
-            z-index: 1000; /* Ensure it stays on top */
-            transition: transform 0.3s ease;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1); /* Enlarge on hover */
-        }
-
-        /* ANIMATION CONTAINER AND ELEMENTS */
-        #animation-container {
-            position: fixed; /* Fixed to viewport */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Allows clicks to pass through to elements beneath */
-            z-index: -1; /* Behind other content */
-            overflow: hidden; /* Hide anything that goes beyond the viewport */
-        }
-
-        /* Common styles for animated elements */
-        .animated-element {
-            position: absolute;
-            font-size: 1.5em;
-            opacity: 0;
-            transform: translateY(0);
-            animation-fill-mode: forwards; /* Keep the final state of the animation */
-            white-space: nowrap; /* Prevent numbers/symbols from wrapping */
-        }
-
-        /* Physics: Falling Particle */
-        .physics-particle {
-            width: 10px;
-            height: 10px;
-            background-color: #4CAF50; /* Green */
-            border-radius: 50%;
-            animation: fallAndFade 4s ease-out;
-        }
-
-        @keyframes fallAndFade {
-            0% { opacity: 0; transform: translateY(-50px) scale(0.5); }
-            20% { opacity: 1; transform: translateY(0) scale(1); }
-            80% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(100vh) scale(0.8); } /* Fall off screen */
-        }
-
-        /* Chemistry: Bubbling Effect */
-        .chemistry-bubble {
-            width: 15px;
-            height: 15px;
-            background-color: rgba(255, 165, 0, 0.7); /* Orange, semi-transparent */
-            border-radius: 50%;
-            animation: bubbleUp 3s ease-out;
-        }
-
-        @keyframes bubbleUp {
-            0% { opacity: 0; transform: translateY(0) scale(0.5); }
-            30% { opacity: 1; transform: translateY(-20px) scale(1); }
-            100% { opacity: 0; transform: translateY(-100px) scale(0.7); } /* Float up and fade */
-        }
-
-        /* Math: Rotating Shape (Square) */
-        .math-shape {
-            width: 20px;
-            height: 20px;
-            background-color: #9C27B0; /* Purple */
-            transform: rotate(0deg);
-            animation: rotateAndFade 5s linear;
-        }
-
-        @keyframes rotateAndFade {
-            0% { opacity: 0; transform: rotate(0deg) scale(0.5); }
-            20% { opacity: 1; transform: rotate(720deg) scale(1); }
-            80% { opacity: 1; }
-            100% { opacity: 0; transform: rotate(1080deg) scale(0.7); }
-        }
-
-        /* Math: Floating Number */
-        .math-number {
-            color: #2196F3; /* Blue */
-            font-weight: bold;
-            animation: floatAndFade 4s ease-out;
-        }
-
-        @keyframes floatAndFade {
-            0% { opacity: 0; transform: translateY(0); }
-            20% { opacity: 1; transform: translateY(-20px); }
-            80% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(-80px); }
-        }
-        /* END ANIMATION CONTAINER AND ELEMENTS */
-
-
-        /* Responsive adjustments for smaller screens */
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-                padding: 0 10px;
-            }
-            /* Ensure slider is full width on small screens */
-            .new-slider-container,
-            .new-slider-item img,
-            .new-slider-item video {
-                max-width: 100%;
-                width: 100%;
-            }
-            .highlight-section h2 {
-                font-size: 1.8em; /* Adjust for smaller screens */
-            }
-            .highlight-section h3 {
-                font-size: 1.2em;
-            }
-            .highlight-section p {
-                font-size: 1em;
-            }
-        }
-    </style>
-    <script>
-        // Function to switch language based on selected option
-        function switchLang(lang) {
-            const elements = document.querySelectorAll('[data-en], [data-hi]');
-            elements.forEach(el => {
-                el.innerText = el.getAttribute(`data-${lang}`);
-            });
-        }
-
-        // DOMContentLoaded ensures the script runs after the HTML is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize language to English
-            document.getElementById('lang').value = 'en';
-            switchLang('en');
-
-            // NEW SLIDER IMPLEMENTATION JAVASCRIPT
-            const sliderWrapper = document.querySelector('.new-slider-wrapper');
-            const sliderContainer = document.querySelector('.new-slider-container');
-            const sliderItems = document.querySelectorAll('.new-slider-item');
-            const slideCount = sliderItems.length;
-            const navContainer = document.querySelector('.new-slider-nav');
-
-            let currentIndex = 0;
-            let startTouchX = 0;
-            let endTouchX = 0;
-
-            // Function to update the slider position
-            function updateSliderPosition() {
-                const offset = -currentIndex * 100; // Move by 100% for each slide
-                sliderWrapper.style.transform = `translateX(${offset}%)`;
-                updateNavDots();
-            }
-
-            // Function to update navigation dots
-            function updateNavDots() {
-                const dots = document.querySelectorAll('.new-slider-nav-dot');
-                dots.forEach((dot, index) => {
-                    if (index === currentIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            }
-
-            // Create navigation dots
-            for (let i = 0; i < slideCount; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('new-slider-nav-dot');
-                dot.addEventListener('click', () => {
-                    currentIndex = i;
-                    updateSliderPosition();
-                });
-                navContainer.appendChild(dot);
-            }
-
-            // Touch event listeners for swipe functionality
-            sliderContainer.addEventListener('touchstart', (e) => {
-                startTouchX = e.touches[0].clientX;
-            });
-
-            sliderContainer.addEventListener('touchmove', (e) => {
-                // Optional: Prevent default vertical scrolling if a horizontal swipe is detected
-                // This can sometimes make vertical scrolling difficult if not implemented carefully.
-                // For simplicity, we'll let the browser handle default scroll behavior for now.
-                endTouchX = e.touches[0].clientX;
-            });
-
-            sliderContainer.addEventListener('touchend', () => {
-                const swipeThreshold = 50; // Minimum pixels for a recognized swipe
-
-                if (startTouchX - endTouchX > swipeThreshold) {
-                    // Swiped left (move to next slide)
-                    currentIndex = (currentIndex + 1) % slideCount;
-                } else if (startTouchX - endTouchX < -swipeThreshold) {
-                    // Swiped right (move to previous slide)
-                    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-                }
-                updateSliderPosition();
-            });
-
-            // Initialize slider position and dots
-            updateSliderPosition();
-            // END NEW SLIDER IMPLEMENTATION JAVASCRIPT
-
-            // ANIMATION LOGIC
-            const animationContainer = document.getElementById('animation-container');
-
-            const animationTypes = [
-                { class: 'physics-particle', content: '', duration: 4000 },
-                { class: 'chemistry-bubble', content: '', duration: 3000 },
-                { class: 'math-shape', content: '', duration: 5000 },
-                { class: 'math-number', content: 'Σ', duration: 4000 }, // Sigma for math
-                { class: 'math-number', content: 'π', duration: 4000 },  // Pi for math
-                { class: 'math-number', content: '∫', duration: 4000 }, // Integral for math
-                { class: 'physics-particle', content: '', duration: 4500 },
-                { class: 'chemistry-bubble', content: '', duration: 3500 },
-                { class: 'math-shape', content: '', duration: 5500 }
-            ];
-
-            function createRandomAnimation() {
-                const type = animationTypes[Math.floor(Math.random() * animationTypes.length)];
-                const element = document.createElement('div');
-                element.classList.add('animated-element', type.class);
-
-                // Set random position within the viewport
-                const viewportWidth = window.innerWidth;
-                const viewportHeight = window.innerHeight;
-
-                // Ensure elements appear fully within the viewport initially
-                const elementSize = 50; // Approximate max size of an animated element
-                element.style.left = `${Math.random() * (viewportWidth - elementSize)}px`;
-                element.style.top = `${Math.random() * (viewportHeight - elementSize)}px`;
-
-                if (type.content) {
-                    element.textContent = type.content;
-                }
-
-                animationContainer.appendChild(element);
-
-                // Remove element after animation duration to prevent clutter
-                setTimeout(() => {
-                    element.remove();
-                }, type.duration);
-            }
-
-            // Start generating animations periodically (e.g., every 2 seconds)
-            setInterval(createRandomAnimation, 2000);
-            // END ANIMATION LOGIC
-        });
-    </script>
+    <link rel="stylesheet" href="style.css"> {/* */}
 </head>
 <body>
-    <!-- Animation container for floating physics, chemistry, and math elements -->
     <div id="animation-container"></div>
 
-<header style="background: linear-gradient(to right, #6a11cb, #2575fc); padding: 30px 0; text-align: center;">
-    <h1 style="color: #ffffff; font-family: sans-serif; font-size: 3em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-        Spark Classes
-    </h1>
-    <p style="color: #e0f2f7; font-family: sans-serif; font-size: 1.2em; margin: 12px 15px 0; font-weight: 300;">
-        Learning Today, Leading Tomorrow
-    </p>
-</header>
+    <header style="background: linear-gradient(to right, #6a11cb, #2575fc); padding: 30px 0; text-align: center;">
+        <h1 style="color: #ffffff; font-family: sans-serif; font-size: 3em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+            Spark Classes
+        </h1>
+        <p style="color: #e0f2f7; font-family: sans-serif; font-size: 1.2em; margin: 12px 15px 0; font-weight: 300;">
+            Learning Today, Leading Tomorrow
+        </p>
+    </header>
 
     <div class="lang-switch">
         <label for="lang">🌐 Language: </label>
@@ -536,7 +30,6 @@
     </div>
 
     <div class="container">
-        <!-- NEW SLIDER IMPLEMENTATION HTML -->
         <div class="new-slider-container">
             <div class="new-slider-wrapper">
                 <div class="new-slider-item">
@@ -550,18 +43,13 @@
                 </div>
                 <div class="new-slider-item">
                     <video controls poster="https://placehold.co/513x300/C0C0C0/333333?text=Video+Thumbnail">
-                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> <!-- Example video source -->
-                        Your browser does not support the video tag.
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
             <div class="new-slider-nav">
-                <!-- Navigation dots will be dynamically added here by JavaScript -->
-            </div>
+                </div>
         </div>
-        <!-- END NEW SLIDER IMPLEMENTATION HTML -->
-
-        <!-- Redesigned "Nursery to 10th Standard" section -->
         <div class="highlight-section">
             <h2 data-en="📚 Nursery to 10th Standard" data-hi="📚 नर्सरी से 10वीं तक">📚 Nursery to 10th Standard</h2>
             <h3 data-en="🏫 MP & CBSE Board (Hindi & English Medium)" data-hi="🏫 एमपी एवं सीबीएसई बोर्ड (हिंदी और इंग्लिश मीडियम)">🏫 MP & CBSE Board (Hindi and English Medium)</h3>
@@ -603,11 +91,9 @@
             <p data-en="Join Spark Classes Now!" data-hi="अभी स्पार्क क्लासेस में शामिल हों!"><strong>Join Spark Classes Now!</strong></p>
         </div>
 
-        <!-- Moved Form Section before Social Icons and re-embedded iframe -->
         <div class="form-section">
             <h2 data-en="📨 Send Us Your Query" data-hi="📨 हमें अपनी जानकारी भेजें">📨 Send Us Your Query</h2>
             <p data-en="Fill the form below to reach out to us. We'll get back to you soon!" data-hi="नीचे दिया गया फॉर्म भरें, हम जल्द ही संपर्क करेंगे।">Fill the form below to reach out to us. We'll get back to you soon!</p>
-            <!-- Re-embedding Google Form via iframe. Note: Google Forms often block embedding due to security policies (X-Frame-Options). -->
             <iframe src="https://forms.gle/e4mJ2vtvqhp3358g8" title="Google Form Query"></iframe>
         </div>
 
@@ -635,5 +121,7 @@
     <footer>
         <p>&copy; 2025 Spark Classes – All Rights Reserved</p>
     </footer>
+
+    <script src="script.js"></script> {/* */}
 </body>
 </html>

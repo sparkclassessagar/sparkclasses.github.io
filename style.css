@@ -1,56 +1,373 @@
- <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #fff8f0; color: #333; }
-    header { background: #4b0082; color: white; padding: 20px; text-align: center; }
-    .container { padding: 20px; max-width: 800px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h1, h2, p, li { margin: 10px 0; }
-    ul { padding-left: 20px; }
-    .contact, .address, .social { margin-top: 20px; text-align: center; }
-    .social a { margin: 0 10px; font-size: 1.5em; color: #4b0082; text-decoration: none; }
-    footer { text-align: center; background: #f4f4f4; padding: 10px; margin-top: 40px; }
-    #language-switcher { text-align: center; margin: 10px 0; }
-    select { padding: 5px; font-size: 1em; border-radius: 5px; border: 1px solid #ccc; }
-    .slider-square {
-  position: relative;
-  width: 100%;
-  max-width: 600px; /* Optional: limits max size on large screens */
-  margin: auto;
+/* Base styles for the body and overall layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+  /* Custom styles for the "Samprate" look, applied only to the faculty-section-samprate class */
+.faculty-section-samprate {
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); /* Subtle gradient */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+}
+.faculty-section-samprate:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Even more pronounced shadow on hover */
 }
 
-.slider-square::before {
-  content: "";
-  display: block;
-  padding-top: 100%; /* 1:1 Aspect Ratio */
+/* Header styling */
+header {
+    background-color: #4b0082; /* Deep purple */
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-.slider-square .slider-content {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 15px;
-  overflow: hidden;
+/* Language switch dropdown styling */
+.lang-switch {
+    text-align: center;
+    margin-top: 10px;
 }
 
-.slider-content img,
-.slider-content video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Main content container styling */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative; /* Needed for z-index context */
+    z-index: 1; /* Ensure content is above animations */
 }
 
-    .social-media {
-  margin-top: 30px;
-  text-align: center;
+/* General spacing for headings, paragraphs, and lists */
+h1, h2, p, ul {
+    margin: 15px 0;
 }
-.social-media a {
-  margin: 0 15px;
-  color: #4b0082;
-  font-size: 1.8em;
-  text-decoration: none;
-  transition: transform 0.3s ease, color 0.3s ease;
+
+/* List item indentation */
+ul {
+    padding-left: 20px;
 }
-.social-media a:hover {
-  color: #ff6600;
-  transform: scale(1.2);
+
+/* Section styling for contact, address, call to action, and social media */
+.contact, .address, .cta, .social {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Social media links styling */
+.social a {
+    margin: 0 15px;
+    font-size: 1.8em;
+    color: #4b0082; /* Deep purple */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+.social a:hover {
+    color: #ff6600; /* Orange on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Footer styling */
+footer {
+    background-color: #eee;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+/* NEW SLIDER IMPLEMENTATION STYLES */
+.new-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 513px; /* Reduced by 5% from 540px */
+    margin: 20px auto;
+    overflow: hidden; /* Hide scrollbars */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.new-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for slides */
+    scroll-snap-type: x mandatory; /* For smooth snapping */
+    -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
+}
+
+.new-slider-item {
+    min-width: 100%; /* Each item takes full width of container */
+    box-sizing: border-box;
+    scroll-snap-align: start; /* Snap to the start of each item */
+    display: flex; /* Use flex to center content if needed */
+    justify-content: center;
+    align-items: center;
+}
+
+.new-slider-item img,
+.new-slider-item video {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below images */
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+.new-slider-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 10; /* Ensure dots are above slides */
+}
+
+.new-slider-nav-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-slider-nav-dot.active {
+    background-color: #4b0082;
+}
+/* END NEW SLIDER IMPLEMENTATION STYLES */
+
+/* Redesigned Highlight Section for "Nursery to 10th Standard" */
+.highlight-section {
+    background: linear-gradient(135deg, #e0f7fa, #bbdefb); /* Light blue gradient */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* More prominent shadow */
+    text-align: center; /* Center align all text content */
+    margin-top: 30px;
+    border: 1px solid #a7d9f7;
+    animation: fadeIn 1s ease-out; /* Fade in animation */
+}
+
+.highlight-section h2 {
+    color: #0288d1; /* Darker blue for heading */
+    font-size: 2.2em; /* Slightly larger font */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* More pronounced text shadow */
+    letter-spacing: 0.5px; /* Slightly increased letter spacing */
+}
+
+.highlight-section h3 {
+    color: #039be5; /* Medium blue for sub-heading */
+    font-size: 1.6em; /* Slightly larger font */
+    margin-bottom: 15px;
+    font-weight: bold; /* Make it bolder */
+}
+
+.highlight-section p {
+    color: #424242; /* Slightly darker text for readability */
+    font-size: 1.2em; /* Slightly larger font */
+    line-height: 1.8; /* Increased line height for better readability */
+    font-weight: 500;
+    max-width: 90%; /* Limit width for better readability on wider screens */
+    margin: 0 auto; /* Center the paragraph if max-width is applied */
+}
+
+/* Keyframe animation for fade in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
-  </style>
+/* Faculty Section Styling */
+.faculty-section {
+    background-color: #f0f0ff; /* Light purple background */
+    border-left: 5px solid #4b0082; /* Left border in deep purple */
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.faculty-section h2 {
+    color: #4b0082; /* Deep purple heading */
+}
+
+.faculty-section ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+.faculty-section li {
+    padding: 8px 0;
+    font-weight: bold;
+}
+
+/* Contact, Address, CTA Box Styling */
+.contact, .address, .cta {
+    background: #fef6ff; /* Very light purple background */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.cta p {
+    font-size: 1.1em;
+    color: #4b0082; /* Deep purple text */
+}
+
+/* Form Section Styling */
+.form-section {
+    margin-top: 40px;
+    text-align: center;
+    /* Added margin-bottom to create space before the next section */
+    margin-bottom: 30px;
+}
+
+/* Styling for the iframe for Google Form */
+.form-section iframe {
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 15px; /* Space below the text */
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; /* WhatsApp green */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none;
+    z-index: 1000; /* Ensure it stays on top */
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1); /* Enlarge on hover */
+}
+
+/* ANIMATION CONTAINER AND ELEMENTS */
+#animation-container {
+    position: fixed; /* Fixed to viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through to elements beneath */
+    z-index: -1; /* Behind other content */
+    overflow: hidden; /* Hide anything that goes beyond the viewport */
+}
+
+/* Common styles for animated elements */
+.animated-element {
+    position: absolute;
+    font-size: 1.5em;
+    opacity: 0;
+    transform: translateY(0);
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+    white-space: nowrap; /* Prevent numbers/symbols from wrapping */
+}
+
+/* Physics: Falling Particle */
+.physics-particle {
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50; /* Green */
+    border-radius: 50%;
+    animation: fallAndFade 4s ease-out;
+}
+
+@keyframes fallAndFade {
+    0% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+    20% { opacity: 1; transform: translateY(0) scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(100vh) scale(0.8); } /* Fall off screen */
+}
+
+/* Chemistry: Bubbling Effect */
+.chemistry-bubble {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 165, 0, 0.7); /* Orange, semi-transparent */
+    border-radius: 50%;
+    animation: bubbleUp 3s ease-out;
+}
+
+@keyframes bubbleUp {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    30% { opacity: 1; transform: translateY(-20px) scale(1); }
+    100% { opacity: 0; transform: translateY(-100px) scale(0.7); } /* Float up and fade */
+}
+
+/* Math: Rotating Shape (Square) */
+.math-shape {
+    width: 20px;
+    height: 20px;
+    background-color: #9C27B0; /* Purple */
+    transform: rotate(0deg);
+    animation: rotateAndFade 5s linear;
+}
+
+@keyframes rotateAndFade {
+    0% { opacity: 0; transform: rotate(0deg) scale(0.5); }
+    20% { opacity: 1; transform: rotate(720deg) scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(1080deg) scale(0.7); }
+}
+
+/* Math: Floating Number */
+.math-number {
+    color: #2196F3; /* Blue */
+    font-weight: bold;
+    animation: floatAndFade 4s ease-out;
+}
+
+@keyframes floatAndFade {
+    0% { opacity: 0; transform: translateY(0); }
+    20% { opacity: 1; transform: translateY(-20px); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-80px); }
+}
+/* END ANIMATION CONTAINER AND ELEMENTS */
+
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+        padding: 0 10px;
+    }
+    /* Ensure slider is full width on small screens */
+    .new-slider-container,
+    .new-slider-item img,
+    .new-slider-item video {
+        max-width: 100%;
+        width: 100%;
+    }
+    .highlight-section h2 {
+        font-size: 1.8em; /* Adjust for smaller screens */
+    }
+    .highlight-section h3 {
+        font-size: 1.2em;
+    }
+    .highlight-section p {
+        font-size: 1em;
+    }
+}
